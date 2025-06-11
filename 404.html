@@ -38,7 +38,7 @@
   </style>
 </head>
 <body>
-  <h1>Redirecting...404</h1>
+  <h1>Redirecting...4046</h1>
   <div class="loader">
     <div class="loader-inner"></div>
   </div>
@@ -66,13 +66,12 @@
     (function () {
       // Extract last part of URL after "/Redirect/"
       const path = window.location.pathname;
-      const parts = path.split("dgbt.in/");
+      const parts = path.split("/");
       if (parts.length < 2) return;
 
       const raw = parts[1];
       const match = raw.match(/^[a-zA-Z0-9]+/); // Remove special characters
-      let key = match ? match[0] : null;
-      key = key ? key.toLowerCase() : null;
+      let key = match ? match[0].toLowerCase() : null;
 
       if (!key) return;
 
