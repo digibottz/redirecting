@@ -71,7 +71,8 @@
 
       const raw = parts[1];
       const match = raw.match(/^[a-zA-Z0-9]+/); // Remove special characters
-      const key = match ? match[0] : null;
+      let key = match ? match[0] : null;
+      key = key ? key.toLowerCase() : null;
 
       if (!key) return;
 
