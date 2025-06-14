@@ -90,10 +90,14 @@
         
         if (keyword === key) {
           if (isMobile && appURL) {
+            const now = Date.now();
             window.location.replace(appURL);
             setTimeout(function () {
-              window.location.replace(url);
-            }, 1000);
+              const timePassed = Date.now() - now;
+              if (timePassed < 1600) {
+                  window.location.href = url;
+                }
+            }, 1500);
           } else if (url) {
             window.location.replace(url);
           }
