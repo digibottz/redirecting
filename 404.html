@@ -85,9 +85,19 @@
       for (const row of table.rows) {
         const keyword = row.cells[0]?.textContent?.trim();
         const url = row.cells[1]?.textContent?.trim();
-
+        const appURL = row.cells[2]?.textContent?.trim();
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        
         if (keyword === key) {
-          window.location.replace(url); // Better for redirect
+          if (isMobile && appURL) {
+            window.location.replace(appURL);
+            setTimeout(function () {
+              window.location.replace(url);
+            }, 1000);
+          } else if (redirectURL) {
+            window.location.replace(url);
+          }
+           // Better for redirect
           return;
         }
       }
