@@ -95,7 +95,7 @@
             setTimeout(function () {
               const timePassed = Date.now() - now;
               if (timePassed < 1600) {
-                  window.location.href = url;
+                  window.location.replace(url);
                 }
             }, 1500);
           } else if (url) {
