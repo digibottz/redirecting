@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Add this to your <head> -->
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <title>Responsive Product Grid with Search</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .static_page .item-post h1.post-title {
+      display: none !important;
+    }
+    
+    .blog-post-comments {
+      display: none !important;
+    }
+    
+    @media screen and (max-width: 1100px) {
+    #content-wrapper {
+        position: relative;
+        box-sizing: border-box;
+        padding: 0 4px;
+        margin: 30px 0 0;
+    	}
+    }
+    
+    #sidebar-wrapper {
+      width: 0%;
+      display : none;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+      min-height: 1px;
+    }
+    #footer-wrapper .container {
+      padding: 4px 0;
+    }
+    
+    .footer-widgets-wrap {
+      display: none;
+    }
+    
+    #main-wrapper {
+      width: 100%;
+      position: relative;
+      overflow: visible;
+      box-sizing: border-box;
+      min-height: 1px;
+    }
+    
+    .item #main-wrapper {
+      background: #00000000;
+      border-radius: 0px;
+      padding: 0px;
+      box-shadow: none;
+  	}
+    
+    .post-item-inner {
+      position: relative;
+      float: left;
+      width: 100%;
+      background-color: #00000000;
+      overflow: hidden;
+      box-sizing: border-box;
+      margin: 0 0 35px;
+	}
+
+    h2 {
+      text-align: center;
+      font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      max-width: 400px;
+      margin: 0 auto 30px auto;
+      text-align: center;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+      gap: 4px;
+      justify-items: center;
+      align-items: stretch;
+      
+    }
+    
+    @media (min-width: 600px) {
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+    }
+
+    .card {
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      width: 100%;
+      background: #fff;
+      border-radius: 0px;
+      overflow: hidden;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      font-weight : 300;
+      transition: transform 0.2s ease;
+    }
+
+
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      padding: 0px;
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #eee;
+      display: block;
+    }
+
+    .product-title {
+      background: #383636;
+      color: #fff;
+      margin: 0;
+      padding: 6px;
+      font-size: 1.2rem;
+      font-weight: 400;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-transform: uppercase;
+      font-family: 'Oswald', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Our Top Products</h2>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search products by title..." oninput="filterProducts()" />
+  </div>
+  <div class="grid" id="productGrid">
+
+    <div class="card">
+      <a href="https://www.digibott.com/2025/06/gangoo-pehalwan-british-army-ke-200.html" target="_blank">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3ygHSSwxOxWXbeL38DBaEU6JRyVQUnUGthrlK1VXxqYEVJlmPNf6_aG9Um4RK2-Idw_G9ksh92bjr-UACN1hwnbEnaecdYhZy9gMB8Usisw-t_NZP6atX4-8CNzlzIqnN8M1wpIcQ35ow80hAZY4PpaXVMKrx6jy2dpsujrfLXGhGxVhAMSN4yguUWalC/w266-h400-rw/ChatGPT%20Image%20Jun%2010,%202025%20at%2004_26_46%20PM.png=w293-h440-p-k-no-nu" alt="Ek Prompt-asdfs" class="product-img" />
+        <div class="product-title">Ek Prompt-asdfs</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.digibott.com/" target="_blank">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXDyFfBB0X4qaCxDBo5YjhPHVtn6DADROacnUNQde-a7zWaPqxKG8lmvp9_2WXsBY83kKTW1Q2qc6_FxVm7aC-WDI7gT8WJcCfyL7RL6Eb2TYlZYMAb4cK8Nn-NGDtueCThm0fJUjRePns1By6ZFo7pLuorvfX3iHF_7iXYH5K_IBEQ9yjiDuUvA9l9YQ7/w400-h245-rw/2.png=w440-h270-p-k-no-nu" alt="Se Bana Do" class="product-img" />
+        <div class="product-title">Se Bana Do</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.digibott.com/p/contact-us.html" target="_blank">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi06G4v3NLkFxw8XlzulOxTiTgFYqdwIpspxcKfSiZuXQK1_55_aFGbcme1np0fBKjp_W68DPtcyrCrNb2fY88zArmStBe_MrtckOs8SREDCn8d8bCV6EICVPwYSMoRx2kS0ALaBtvCyAUPG8vZXHM3n7UlmJm5sdDGJ-UGjZskjFEjjX2X9USV6inJs7WF/w400-h246-rw/1.png=w440-h271-p-k-no-nu" alt="Cinematic Photo" class="product-img" />
+        <div class="product-title">Cinematic Photo</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.digibott.com/p/about-us.html" target="_blank">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEi7Q8qGiij7x_V34rswQdHB6cKHE0avhvaDa0_gjDePq9EmIEEzJROXxPuGaKDI6iEijDwcP9f-bQUlAdKizm8VPun0wa3DngeglFheDdd2VYj5QCR_til69sstfA_DHjLLKG5luqwZTOJThCDUnIe4knt9MYY4uUNXOCslFBq86BXCl3iXhzoYzR5YngwL=w333-h440-p-k-no-nu" alt="Gangoo Pehalwan" class="product-img" />
+        <div class="product-title">Gangoo Pehalwan</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.digibott.com/2025/06/prompt-for-restoring-old-photos-using.html" target="_blank">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjEGpVAHxz0ROA-1e4f_80xsTGKtl_YmTxtWgiUqU3DLZ0s0FlaY3AqrYoJkBEducxkT28Ic_oo1uoLttcZPVUrt4MgOJHE9siKXLrYhqpyyWR7-oiftrU3I_elhLp6DcpYwCaiqQs6sslnRBij3YbW9OywnytCnFgyDfSWtJeKbxSA64fpXG6Y9fMsS2E8=w704-h396-p-k-no-nu" alt="British Army ke" class="product-img" />
+        <div class="product-title">British Army ke</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.digibott.com/2025/06/turn-normal-photo-into-cinematic.html" target="_blank">
+        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgNHHszcnhgqyAA3kstHmF9CZE_1o0NWBd-bRz8YcuzY7rNbsUqwPiV7MuKIndvVBgr7KtNUACb5Ck9RAxzxdBd9Hdt6xAUCvGngaVnkfB0KYolJrn7GICDir_pQty6vewI4_SNh29LTQLg5YrL8TGInq-pTzzUHraOYB9l03xaWxVfw-OjqfN10tP9bhs0=w440-h248-p-k-no-nu" alt="200 Sipaahiyon ko" class="product-img" />
+        <div class="product-title">200 Sipaahiyon ko</div>
+      </a>
+    </div>
+</div>
+ 
+
+  <script>
+    function filterProducts() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('#productGrid .card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('.product-title').textContent.toLowerCase();
+        card.style.display = title.includes(input) ? 'block' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
