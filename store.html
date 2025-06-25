@@ -13,7 +13,12 @@
       gap: 4px;
       justify-items: center;
       align-items: stretch;
-      
+    }
+
+	@media (min-width: 800px) {
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
     }
 
     .card {
