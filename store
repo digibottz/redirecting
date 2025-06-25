@@ -1,0 +1,154 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8"></meta>
+  <meta content="width=device-width, initial-scale=1" name="viewport"></meta>
+  <!-- Add this to your <head> -->
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&amp;display=swap" rel="stylesheet"></link>
+  <style>
+    
+    .item #main-wrapper {
+      background: #00000000;
+      border-radius: 0px;
+      padding: 0px;
+      box-shadow: none;
+  	}
+    
+    .post-item-inner {
+      position: relative;
+      float: left;
+      width: 100%;
+      background-color: #00000000;
+      overflow: hidden;
+      box-sizing: border-box;
+      margin: 0 0 35px;
+	}
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+      gap: 4px;
+      justify-items: center;
+      align-items: stretch;
+      
+    }
+
+    .card {
+      max-width: 300px;
+      border: 1px solid #383636;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      width: 100%;
+      background: #fff;
+      border-radius: 0px;
+      overflow: hidden;
+      box-shadow: 0;
+      text-align: center;
+      font-weight : 300;
+      transition: transform 0.2s ease;
+    }
+
+
+
+    .card:hover {
+      border: 1px solid #e32b62;
+    }
+
+    .card a {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+      padding: 0px;
+    }
+
+    .product-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #eee;
+      display: block;
+    }
+
+    .product-title {
+      background: #383636;
+      color: #fff;
+      margin: 0;
+      padding: 2px;
+      font-size: clamp(10px, 2vw, 16px);
+      font-weight: 400;
+      white-space: nowrap;
+      overflow: hidden;
+      text-align: center;
+      text-overflow: ellipsis;
+      font-family: 'Oswald', sans-serif;
+    }
+    .card:hover .product-title {
+      background: #1b4585;
+      color: #f5f576;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="grid" id="productGrid">
+
+    <div class="card">
+      <a href="https://www.amazon.in/dp/B0FCCB62BH" target="_blank">
+        <img src="https://m.media-amazon.com/images/I/51N+TtMhtDL.jpg" alt="Self Defence Gadgets" class="product-img" />
+        <div class="product-title">Self Defence Gadgets</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.amazon.in/dp/B0DL3CH93D" target="_blank">
+        <img src="https://m.media-amazon.com/images/I/61gdoC+XIZL._SL1500_.jpg" alt="Portronics Wireless Car Receiver" class="product-img" />
+        <div class="product-title">Portronics Wireless Car Receiver</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.amazon.in/dp/B07JDJPFL3" target="_blank">
+        <img src="https://m.media-amazon.com/images/I/61911JII4eL._SL1000_.jpg" alt="Flexible Gorillapod Tripod" class="product-img" />
+        <div class="product-title">Flexible Gorillapod Tripod</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.amazon.in/dp/B095CLQ1PT" target="_blank">
+        <img src="https://m.media-amazon.com/images/I/41oK-1w0oLL._SL1000_.jpg" alt="Tapo TP-Link CCTV Camera" class="product-img" />
+        <div class="product-title">Tapo TP-Link CCTV Camera</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.amazon.in/s?k=boya+by+m1+mic&crid=1PAXIMV7PU9FX&sprefix=boya+by+%2Caps%2C269&ref=nb_sb_ss_mvt-t11-ranker_1_8" target="_blank">
+        <img src="https://m.media-amazon.com/images/I/61BAJkRRvgL._SL1200_.jpg" alt="Boy BY M1 Mic" class="product-img" />
+        <div class="product-title">Boy BY M1 Mic</div>
+      </a>
+    </div>
+
+    <div class="card">
+      <a href="https://www.amazon.in/s?k=iphone&rh=p_36%3A2210000-%2Cp_72%3A1318476031&dc&crid=1RD81TF1D89SN&qid=1750497656&rnid=1318475031&sprefix=iphone%2Caps%2C255&ref=sr_nr_p_72_1&ds=v1%3Atv%2F%2FCbZQYdNS9%2BRJEeGr3CU58LsuxJHnWbQQGbrBIQ8" target="_blank">
+        <img src="https://m.media-amazon.com/images/I/61Ony8rgwEL._SL1500_.jpg" alt="iPhone" class="product-img" />
+        <div class="product-title">iPhone</div>
+      </a>
+    </div>
+</div>
+ 
+
+  <script>
+    document.querySelectorAll('.product-title').forEach(el => {
+      let fontSize = 20; // Start large
+      el.style.fontSize = fontSize + 'px';
+      while (el.scrollWidth > el.clientWidth && fontSize > 8) {
+        fontSize--;
+        el.style.fontSize = fontSize + 'px';
+      }
+    });
+    
+  </script>
+
+</body>
+</html>
