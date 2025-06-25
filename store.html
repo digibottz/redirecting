@@ -147,7 +147,9 @@
         el.style.fontSize = fontSize + 'px';
       }
     });
-    
+    window.onload = function () {
+    parent.postMessage(document.body.scrollHeight, "*");
+  };
   </script>
 
 </body>
