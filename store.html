@@ -133,9 +133,13 @@
         el.style.fontSize = fontSize + 'px';
       }
     });
-    window.onload = function () {
-    parent.postMessage(document.body.scrollHeight, "*");
-  };
+    function sendHeightToParent() {
+    const height = document.body.scrollHeight;
+    parent.postMessage({ iframeHeight: height }, '*');
+  }
+
+  window.addEventListener('load', sendHeightToParent);
+  window.addEventListener('resize', sendHeightToParent);
   </script>
 
 </body>
